@@ -1,0 +1,12 @@
+Client
+------
+Get.Coords 
+Get.Match 
+Get.getTrafficLightNrs
+Get.getDefectState
+POST.updateDefectState    -------------> |Backend ..|
+                                            I
+                                            I                ____  
+                                            I-------------> I    I
+                                                            I DB I    
+                                                            I____I
