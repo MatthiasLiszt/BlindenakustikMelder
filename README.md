@@ -1,21 +1,18 @@
-# BlindenakustikMelder
 
-Web Applikation
-- Frontend
-	+  HTML5/CSS3 + Bootstrap + Javascript for REST communication
-- Backend
-	+ Node.js
-	+ Java Jetty
-- Email Service
-- DB für Statuse & Ampelinformationen
-	+ MongoDB 
+# BlindenakustikMelder Easter Submit
 
-Who does what?
-  - Samirah: MongoDB
-  - Julia: Web design vorschlag
-  - Srdjan:  Web design vorschlag
-  - Florian: Node.js backend idee 
-  - Matthias: REST API
+well, not an egg but rather a bug search ... 
+this is a almost from scratch remake for getting better understanding ...
 
-
-MongoDB Server 37.252.120.177:27000
+for running :
+     import adata.json to your mongodb 
+     check out the important files and directors 
+     
+     necessary files : servernew.js (the server etc.) , package.json
+     necessary directories: hbs (handlebar screens) , config (database)
+     
+how to run : all done right , node servernew.js would do  ... http://localhost:3000     
+     
+what's to be done: 
+                  in servernew.js go to the query part and find out why it 
+		  does not retrieve data from database , although it's connected 
