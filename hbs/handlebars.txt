@@ -1,0 +1,1 @@
+main.hbs is almost pure html and all others are additions
