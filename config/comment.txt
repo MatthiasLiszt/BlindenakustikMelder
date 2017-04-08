@@ -1,0 +1,2 @@
+a left over of Srdjan's code 
+a js file handling the database or I do not know for what it was intended 
