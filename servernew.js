@@ -36,23 +36,27 @@ return console.log('something bad happened', err)
 }
 console.log(`server is listening on ${port}`)
 })
- 
+
 //defining schema and model and tryping to access
-// unfortunately currently not working 
+// unfortunately currently not working
 
 var Schema = mongoose.Schema
 
-var getCrossingById = new Schema ({
-   qrossing : String
-  
+var CrossingSchema = new Schema ({
+   name: String
 })
 
-var getCrossingByIdModel = mongoose.model('getCrossingByIdModel', getCrossingById)
+var Crossings = mongoose.model('Crossings', CrossingSchema)
 
-getCrossingByIdModel.find( {"id" : "AKUSTISCHEAMPELOGD.431"},function(err,ckrossing){
+Crossings.find({}, function(err, crossings){
   if (err) return handleError(err);
-  console.log("data from db "+ckrossing)
-})
+
+  if (crossings.length == 0) {
+    Crossings.create([{ name: 'Abermanngasse'}, {name: 'Aichholzgasse'}, {name: 'Aichhorngasse'}], function(err) {
+      if (err) return handleError(err);
+    });
+  }
+});
 
 //handlebar code
 
@@ -64,21 +68,23 @@ layoutsDir: path.join(__dirname, 'hbs')
 app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname, 'hbs'))
 
-
-
 //my own mustard
 
 app.get('/crossing', (req, res) => {
-dtrash.push(req.param('encrypted'))
-res.render('crossing', {
- crossing: 'Johnstrasse'
- })
-})
+  Crossings.find({}, function(err, crossings){
+    if (err) return handleError(err);
+
+    console.log(crossings);
+
+    res.render('crossing', {
+     crossings: crossings
+    });
+  });
+});
 
 app.get('/', (req, res) => {
-
-res.render('login') 
-})
+  res.render('login');
+});
 
 app.get('/error',(req,res) => {
 //dtrash.push(req.param) adds real trash
